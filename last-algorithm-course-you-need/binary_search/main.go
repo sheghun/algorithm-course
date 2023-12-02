@@ -6,22 +6,23 @@ import (
 )
 
 func main() {
-	fmt.Println(binarySearch([]int{-3, -2, 1, 2, 3, 4, 5, 6, 7, 8, 9}, -2))
+	fmt.Println(binarySearch([]int{-3, -2, 1, 2, 3, 4, 5, 6, 7, 8, 9}, 12))
 }
 
-func binarySearch(arr []int, val int) int {
+func binarySearch(arr []int, needle int) int {
 	lo := 0
-	h := len(arr)
-	m := 0
+	hi := len(arr)
 
-	for lo < h {
-		tmp := float64(lo + (h-lo)/2)
-		m = int(math.Floor(tmp))
-		if arr[m] == val {
+	for lo < hi {
+		m := int(math.Floor(float64(lo + (hi-lo)/2)))
+		val := arr[m]
+
+		if val == needle {
 			return m
 		}
-		if arr[m] > val {
-			h = m
+
+		if val > needle {
+			hi = m
 		} else {
 			lo = m + 1
 		}
