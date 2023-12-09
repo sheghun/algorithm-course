@@ -16,7 +16,6 @@ func twoCrystalBallsProblem(breaks []bool) int {
 	for ; i < len(breaks); i += jmpAmount {
 		if breaks[i] {
 			break
-			fmt.Print("here")
 		}
 	}
 

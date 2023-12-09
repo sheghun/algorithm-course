@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 )
 
 func main() {
@@ -14,7 +13,7 @@ func binarySearch(arr []int, needle int) int {
 	hi := len(arr)
 
 	for lo < hi {
-		m := int(math.Floor(float64(lo + (hi-lo)/2)))
+		m := int(float64(lo + (hi-lo)/2))
 		val := arr[m]
 
 		if val == needle {
