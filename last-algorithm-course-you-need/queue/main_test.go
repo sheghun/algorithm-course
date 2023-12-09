@@ -19,6 +19,9 @@ func TestQueue(t *testing.T) {
 	if queue.tail.Value != 3 {
 		t.Fatalf("expected queue.value.tail to be %d, go %d", 1, queue.head.Value)
 	}
+	if queue.length != 3 {
+		t.Fatalf("expected queue.value.lengh to be %d, go %d", 3, queue.length)
+	}
 
 	if queue.head.Value != 1 {
 		t.Fatalf("expected queue.value.head to be %d, go %d", 1, queue.head.Value)
