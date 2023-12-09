@@ -6,7 +6,7 @@ func TestQueue(t *testing.T) {
 	queue := NewQueue[int]()
 	queue.enqueue(1)
 
-	if queue.head.Value != 1 {
+	if queue.peek() == nil || *queue.peek() != 1 {
 		t.Fatalf("expected queue.value.head to be %d, go %d", 1, queue.head.Value)
 	}
 

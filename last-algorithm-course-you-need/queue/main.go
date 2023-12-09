@@ -40,6 +40,14 @@ func (q *Queue[T]) deque() *T {
 	return &head.Value
 }
 
+func (q *Queue[T]) peek() *T {
+	if q.head == nil {
+		return nil
+	}
+
+	return &q.head.Value
+}
+
 func main() {
 
 }
