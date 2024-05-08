@@ -35,7 +35,7 @@ func (q *Queue[T]) deque() *T {
 		return nil
 	}
 	q.length--
-	head := q.head
+	head := *q.head
 	q.head = q.head.Next
 	return &head.Value
 }
@@ -49,5 +49,4 @@ func (q *Queue[T]) peek() *T {
 }
 
 func main() {
-
 }
