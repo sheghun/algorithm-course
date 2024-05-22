@@ -23,12 +23,12 @@ func TestQueue(t *testing.T) {
 		t.Fatalf("expected queue.value.lengh to be %d, go %d", 3, queue.length)
 	}
 
-	if queue.head.Value != 1 {
+	if *queue.peek() != 1 {
 		t.Fatalf("expected queue.value.head to be %d, go %d", 1, queue.head.Value)
 	}
 
 	queue.deque()
-	if queue.head.Value != 2 {
+	if *queue.peek() != 2 {
 		t.Fatalf("expected queue.value.head to be %d, go %d", 1, queue.head.Value)
 	}
 
