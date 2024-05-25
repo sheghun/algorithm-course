@@ -17,4 +17,16 @@ func TestStack(t *testing.T) {
 			t.Errorf("pushing failed ")
 		}
 	})
+
+	t.Run("test pop", func(t *testing.T) {
+		val := stack.Pop()
+		if *val != 1 && stack.Len() != 0 {
+			t.Errorf("error occured calling pop")
+		}
+
+		val = stack.Pop()
+		if val != nil && stack.Len() != 0 {
+			t.Errorf("calling pop the second time failed")
+		}
+	})
 }

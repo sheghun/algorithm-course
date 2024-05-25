@@ -1,5 +1,7 @@
 package main
 
+import "math"
+
 type Node[T comparable] struct {
 	Value T
 	Next  *Node[T]
@@ -33,15 +35,19 @@ func (s *Stack[T]) Push(item T) {
 	s.Head = node
 }
 
-func (s *Stack[T]) Pop(item T) *T {
+func (s *Stack[T]) Pop() *T {
 	if s.Head == nil {
 		return nil
 	}
 
-	s.length--
+	if s.length == 0 {
+		return nil
+	}
 
 	head := *s.Head
 	s.Head = s.Head.Next
+
+	s.length = int(math.Max(0, float64(s.length)-1))
 
 	return &head.Value
 }
@@ -51,5 +57,4 @@ func (s *Stack[T]) Peek(item T) T {
 }
 
 func main() {
-
 }
