@@ -83,9 +83,9 @@ func main() {
 
 	c.Write([]int{11, 12})
 	fmt.Println("WRITE INDEX: ", c.w)
-	read2 := make([]int, 10)
-	c.Read(read2)
-	fmt.Println(read2)
+	read = make([]int, 10)
+	c.Read(read)
+	fmt.Println(read)
 	fmt.Println("READ INDEX: ", c.r)
 	fmt.Println("CIRCULAR DATA: ", c.data)
 }
