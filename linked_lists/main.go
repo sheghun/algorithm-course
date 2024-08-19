@@ -67,9 +67,10 @@ func (l *List[T]) Append(item T) {
 
 // get implements LinkedList.
 func (l *List[T]) Get(index int) *T {
-	for i, val := range l.AllWithIndex {
-		if i == index {
-			return &val
+	// for h, i := l.head, 0; h != nil && i < l.Len(); h, i = h.Next, i+1 {
+	for i, val := 0, l.head; val != nil && i < l.Len(); i, val = i+1, val.Next {
+		if i == index && val != nil {
+			return &val.Value
 		}
 	}
 	return nil
@@ -78,7 +79,7 @@ func (l *List[T]) Get(index int) *T {
 // insertAt implements LinkedList.
 func (l *List[T]) InsertAt(item T, index int) {
 	n := &Node[T]{Value: item, Next: nil, Prev: nil}
-	for i, val := range l.AllWithNode {
+	for i, val := 0, l.head; val != nil && i < l.Len(); i, val = i+1, val.Next {
 		if i == index {
 			l.length++
 			a := val.Prev
@@ -101,7 +102,7 @@ func (l *List[T]) Prepend(item T) {
 
 // remove implements LinkedList.
 func (l *List[T]) Remove(item T) *T {
-	for _, val := range l.AllWithNode {
+	for i, val := 0, l.head; val != nil && i < l.Len(); i, val = i+1, val.Next {
 		fmt.Println(val.Value)
 		if item == val.Value {
 			a := val.Prev
@@ -119,7 +120,7 @@ func (l *List[T]) Remove(item T) *T {
 
 // removeAt implements LinkedList.
 func (l *List[T]) RemoveAt(index int) *T {
-	for i, val := range l.AllWithNode {
+	for i, val := 0, l.head; val != nil && i < l.Len(); i, val = i+1, val.Next {
 		if i == index {
 			a := val.Prev
 			c := val.Next

@@ -20,7 +20,7 @@ func TestLinkedList(t *testing.T) {
 		}
 	})
 
-	t.Run("Add at index", func(t *testing.T) {
+	t.Run("InsertAt index", func(t *testing.T) {
 		list.InsertAt("4", 1)
 		if *list.Get(1) != "4" || list.Len() != 3 || *list.Get(2) != "3" {
 			t.Fatalf("inserting at index failed")
