@@ -30,22 +30,6 @@ func NewLinkedList[T comparable]() LinkedList[T] {
 	return &list
 }
 
-func (l *List[T]) AllWithIndex(yield func(int, T) bool) {
-	for h, i := l.head, 0; h != nil && i < l.Len(); h, i = h.Next, i+1 {
-		if !yield(i, h.Value) {
-			return
-		}
-	}
-}
-
-func (l *List[T]) AllWithNode(yield func(int, *Node[T]) bool) {
-	for h, i := l.head, 0; h != nil && i < l.Len(); h, i = h.Next, i+1 {
-		if !yield(i, h) {
-			return
-		}
-	}
-}
-
 // Length implements LinkedList.
 func (l *List[T]) Len() int {
 	return l.length
@@ -69,7 +53,7 @@ func (l *List[T]) Append(item T) {
 func (l *List[T]) Get(index int) *T {
 	// for h, i := l.head, 0; h != nil && i < l.Len(); h, i = h.Next, i+1 {
 	for i, val := 0, l.head; val != nil && i < l.Len(); i, val = i+1, val.Next {
-		if i == index && val != nil {
+		if i == index {
 			return &val.Value
 		}
 	}
