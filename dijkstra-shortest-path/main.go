@@ -9,7 +9,7 @@ type node struct {
 
 type WeightedAdjacencyList [][]node
 
-func DijstraList(source, sink int, graph WeightedAdjacencyList) {
+func DjikstraList(source, sink int, graph WeightedAdjacencyList) {
 	seen := make([]bool, len(graph))
 	prev := make([]int, len(graph))
 	for i := range prev {
